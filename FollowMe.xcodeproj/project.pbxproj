@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A94317081CEA7FCC0048BBB3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94317071CEA7FCB0048BBB3 /* MapKit.framework */; };
 		A9CEB7B51CD4666700CA8479 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CEB7B41CD4666700CA8479 /* AppDelegate.swift */; };
 		A9CEB7B71CD4666700CA8479 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CEB7B61CD4666700CA8479 /* ViewController.swift */; };
 		A9CEB7BA1CD4666700CA8479 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9CEB7B81CD4666700CA8479 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A94317071CEA7FCB0048BBB3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A9CEB7B11CD4666700CA8479 /* FollowMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FollowMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9CEB7B41CD4666700CA8479 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9CEB7B61CD4666700CA8479 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A94317081CEA7FCC0048BBB3 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +80,7 @@
 		A9CEB7A81CD4666700CA8479 = {
 			isa = PBXGroup;
 			children = (
+				A94317071CEA7FCB0048BBB3 /* MapKit.framework */,
 				A9CEB7B31CD4666700CA8479 /* FollowMe */,
 				A9CEB7C81CD4666700CA8479 /* FollowMeTests */,
 				A9CEB7D31CD4666700CA8479 /* FollowMeUITests */,
@@ -193,6 +197,11 @@
 				TargetAttributes = {
 					A9CEB7B01CD4666700CA8479 = {
 						CreatedOnToolsVersion = 7.3;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					A9CEB7C41CD4666700CA8479 = {
 						CreatedOnToolsVersion = 7.3;
@@ -482,6 +491,7 @@
 				A9CEB7DB1CD4666700CA8479 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A9CEB7DC1CD4666700CA8479 /* Build configuration list for PBXNativeTarget "FollowMeTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +500,7 @@
 				A9CEB7DE1CD4666700CA8479 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A9CEB7DF1CD4666700CA8479 /* Build configuration list for PBXNativeTarget "FollowMeUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +509,7 @@
 				A9CEB7E11CD4666700CA8479 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

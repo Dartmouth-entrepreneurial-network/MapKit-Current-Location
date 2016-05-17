@@ -11,7 +11,7 @@ import MapKit
 import CoreLocation
 //The ---MKMapViewDelegate--- protocol defines a set of optional methods that you can use to receive map-related update messages. Because many map operations require the MKMapView class to load data asynchronously, the map view calls these methods to notify your application when specific operations complete. The map view also uses these methods to request annotation and overlay views and to manage interactions with those views.Before releasing an MKMapView object for which you have set a delegate, remember to set that object’s delegate property to nil.
 
-//The ---CLLocationManagerDelegate--- protocol defines the methods used to receive location and heading updates from a CLLocationManager object.Upon receiving a successful location or heading update, you can use the result to update your user interface or perform other actions. If the location or heading could not be determined, you might want to stop updates for a short period of time and try again later. You can use the stopUpdatingLocation, stopMonitoringSignificantLocationChanges, stopUpdatingHeading, stopMonitoringForRegion:, or stopMonitoringVisits methods of CLLocationManager to stop the various location services.The methods of your delegate object are called from the thread in which you started the corresponding location services. That thread must itself have an active run loop, like the one found in your application’s main thread.
+//The ---CLLocationManagerDelegate--- protocol defines the methods used to receive location and heading updates from a CLLocationManager object. Upon receiving a successful location or heading update, you can use the result to update your user interface or perform other actions. If the location or heading could not be determined, you might want to stop updates for a short period of time and try again later. You can use the stopUpdatingLocation, stopMonitoringSignificantLocationChanges, stopUpdatingHeading, stopMonitoringForRegion:, or stopMonitoringVisits methods of CLLocationManager to stop the various location services.The methods of your delegate object are called from the thread in which you started the corresponding location services. That thread must itself have an active run loop, like the one found in your application’s main thread.
 
 //need ViewController to conform to these two delegates (the protocol)
 
@@ -29,7 +29,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         //set up locationManager so it can find current location as soon as it's loaded.
         // delegate is the delegate object to receive update events. Self returns the receiver
         self.locationManager.delegate = self
-        // Use the highest level of accuracy, want user's exact location
+        // Use the second highest level of accuracy
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         // Requests permission to use location services while the app is in the foreground, we don't want to use location services when the app is in the background
         self.locationManager.requestWhenInUseAuthorization()
@@ -37,6 +37,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.locationManager.startUpdatingLocation()
         // A boolean value indicating whether the map should try to display the user's location
         self.mapView.showsUserLocation = true
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,7 +51,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         // Get last location of locations that have been passed in (most current)
         let location = locations.last
         // For future use
-        print(location)
+        print(location!.coordinate.latitude)
+        print(location!.coordinate.longitude)
         // Get center of that location, i.e. latitude and longitude from that location variable
         let center =  CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
         //  Area for map to zoom to. A smaller number zooms further in. Zooming into user's current location. MKCoordinateRegion is a structure which defines which portion of the map to display; center is the centerpoint of the region displayed. The span defines the horizontal and vertical span representing the amount of map to display. The span also defines the current zoom level used by the map view object. 1 and 1 is the zoom.
@@ -60,6 +62,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         //Stop the generation of location updates.
         self.locationManager.stopUpdatingLocation()
     }
+    
+    
     
     //Tells the delegate that the location manager was unable to retrieve a location value. Implementation of this method is optional but recommended.The location manager calls this method when it encounters an error trying to get the location or heading data. If the location service is unable to retrieve a location right away, it reports a kCLErrorLocationUnknown error and keeps trying. In such a situation, you can simply ignore the error and wait for a new event. If a heading could not be determined because of strong interference from nearby magnetic fields, this method returns kCLErrorHeadingFailure.If the user denies your application’s use of the location service, this method reports a kCLErrorDenied error. Upon receiving such an error, you should stop the location service.
     
