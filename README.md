@@ -8,4 +8,3 @@ The characteristic blue dot shows the current location
 
 <img src="http://i.imgur.com/evrfY6s.gif" width="300">
 
-<img src="http://i.imgur.com/CuREX7f.jpg" width ="1000">
