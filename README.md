@@ -6,5 +6,5 @@ The characteristic blue dot shows the current location
 
 <img src="http://i.imgur.com/Im0CJEX.png" width="100">
 
-<img src="http://i.imgur.com/evrfY6s.gif" width="300">
+<img src="http://i.imgur.com/9FlfJ29.png" width="300">
 
